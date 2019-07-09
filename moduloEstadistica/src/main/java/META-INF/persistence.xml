@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="moduloEstadistica">
+		<class>com.asae.entity.Asistencia</class>
+		<class>com.asae.entity.Cargo</class>
+		<class>com.asae.entity.Detalleasistencia</class>
+		<class>com.asae.entity.DetalleasistenciaPK</class>
+		<class>com.asae.entity.Detalleinscripcion</class>
+		<class>com.asae.entity.DetalleinscripcionPK</class>
+		<class>com.asae.entity.Evento</class>
+		<class>com.asae.entity.Grupo</class>
+		<class>com.asae.entity.Horario</class>
+		<class>com.asae.entity.Inscripcion</class>
+		<class>com.asae.entity.Medida</class>
+		<class>com.asae.entity.Noticia</class>
+		<class>com.asae.entity.Patologia</class>
+		<class>com.asae.entity.Recuperarcontrasena</class>
+		<class>com.asae.entity.Responsable</class>
+		<class>com.asae.entity.Tipounidadacademica</class>
+		<class>com.asae.entity.Unidadacademica</class>
+		<class>com.asae.entity.Usuario</class>
+		<class>com.asae.entity.Usuariogrupo</class>
+		<class>com.asae.entity.UsuariogrupoPK</class>
+	</persistence-unit>
+</persistence>
