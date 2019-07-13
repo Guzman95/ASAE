@@ -11,7 +11,14 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Usuario.consultarAsistencias", query="SELECT DISTINCT u from Usuario u INNER JOIN u.detalleasistencias p " )
+@NamedQueries({
+
+@NamedQuery(name="usuario.findAll", query = "SELECT u FROM Usuario u"),
+@NamedQuery(name="usuario.getByEmail", query = "SELECT u FROM Usuario u WHERE u.usuemail = :email" ),
+@NamedQuery(name = "usuario.findByName", query = "SELECT u FROM Usuario u WHERE u.usunombres = :name"),
+@NamedQuery(name = "usuario.findById", query = "SELECT u FROM Usuario u WHERE u.usuidentificacion = :id"),
+//@NamedQuery(name = "usuario.findDetails", query = "SELECT u.detalleasistencias FROM Usuario u")	
+})
 
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
