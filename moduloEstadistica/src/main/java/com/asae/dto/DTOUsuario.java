@@ -4,8 +4,7 @@ import java.math.BigInteger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+
 
 @ManagedBean(name = "objusuario", eager = true) 
 @RequestScoped 

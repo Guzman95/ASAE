@@ -15,7 +15,6 @@ import javax.naming.NamingException;
 
 import com.asae.dto.DTOUsuario;
 import com.asae.ejbinterface.IEjbUsuario;
-import com.asae.entity.Usuario;
 
 @ManagedBean(name = "usuarioController")
 @RequestScoped 
@@ -52,60 +51,14 @@ public class usuarioController {
 	public void setListaUsuario(ArrayList<DTOUsuario> listaUsuario) {
 		this.listaUsuario = listaUsuario;
 	}
-
-	/*public String guardarUsuario() {		
-		try
-		{				
-			iEjbUsuario.insert(this.objusuario);
-			this.addMessage("Registro exitoso", "Registro exitoso del usuario");
-	    }
-		catch(Exception ex)
-		{
-			System.out.println("Error en insertar: "+ex.getMessage());
-			this.addMessage("Error al registrar el usuario", "Error al registrar el usuario");
-		}
-		
-		return "registrar";
-	}*/
 	
 	public String listarUsuarios()
-	{		
+	{
 		this.listaUsuario= (ArrayList<DTOUsuario>)iEjbUsuario.findAll();	
 		System.out.println(listaUsuario.get(0).getUsunombres());
 		
-		return "/usuario/index";
+		return "";
 	}
-	
-	/*public String editarUsuario(int idUsuario) {
-		if(()constreai(Array Listn) {
-			
-		}
-		this.objusuario=Liist
-		//return "usuario/editar";
-		
-	}*/
-	
-	/*public String eliminarUsuario()
-	{
-		try
-		{				
-			
-			iEjbUsuario.eliminarUsuario(this.objusuario);
-			this.addMessage("Eliminación exitosa", "Eliminación exitosa del usuario");
-	    }
-		catch(Exception ex)
-		{			
-			this.addMessage("Error al eliminar el usuario", "Error al eliminar el usuario");
-		}
-		
-		
-		return "/usuario/listar";
-	}
-	public void addMessage(String summary, String detail) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}*/
-
 	
 	public void consultarReferenciaEJB()
 	{

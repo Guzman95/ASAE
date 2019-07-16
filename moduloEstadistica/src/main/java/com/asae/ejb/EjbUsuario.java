@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -16,6 +17,7 @@ import com.asae.daointerface.IDaoUsuario;
 import com.asae.dto.DTOUsuario;
 import com.asae.ejbinterface.IEjbUsuario;
 
+@Stateful
 public class EjbUsuario implements IEjbUsuario{
 
 	private EntityManagerFactory emf=null;
@@ -80,7 +82,7 @@ public class EjbUsuario implements IEjbUsuario{
 			et=em.getTransaction();			
 			et.begin();
 				
-			lista = iDaoUsuario.findByName(em, "Margarita");
+			lista = iDaoUsuario.findByName(em, "'%Mar%'");
 			System.out.println("cantidad de usuarios:ds " + lista.size());
 			for (int i = 0; i < lista.size(); i++) {
 				DTOUsuario objusuario= new DTOUsuario();

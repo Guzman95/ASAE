@@ -2,6 +2,7 @@ package com.asae.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.text.html.parser.DTD;
 
 import com.asae.daointerface.*;
@@ -34,7 +35,10 @@ public class DaoUsuario implements IDaoUsuario {
 
 	@Override
 	public List<Usuario> findByName(EntityManager em, String nombre) {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Usuario> query=em.createNamedQuery("usuario.findByName", Usuario.class);
+		query.setParameter("name", nombre);		
+		
+		return query.getResultList();
+
 	}
 }
