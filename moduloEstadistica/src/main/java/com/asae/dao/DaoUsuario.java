@@ -34,11 +34,29 @@ public class DaoUsuario implements IDaoUsuario {
 	}
 
 	@Override
-	public List<Usuario> findByName(EntityManager em, String nombre) {
-		TypedQuery<Usuario> query=em.createNamedQuery("usuario.findByName", Usuario.class);
-		query.setParameter("name", nombre);		
-		
-		return query.getResultList();
-
+	public List<Usuario> findByName(EntityManager em, String busqueda) {
+		if(!isNumeric(busqueda)) {
+			TypedQuery<Usuario> query=em.createNamedQuery("usuario.findMix", Usuario.class);
+			query.setParameter("busqueda","%" + busqueda + "%");
+			return query.getResultList();
+		}else {
+			int numeroId=Integer.parseInt(busqueda);
+			TypedQuery<Usuario> query=em.createNamedQuery("usuario.findById", Usuario.class);
+			query.setParameter("busqueda",numeroId);
+			return query.getResultList();	
+		}
+	}
+	
+	public boolean isNumeric(String busqueda) {
+		boolean resultado;
+		try {
+			Integer.parseInt(busqueda);
+            resultado = true;
+			return resultado;
+		} catch (Exception e) {
+			// TODO: handle exception
+			resultado =false;
+			return resultado;
+		}
 	}
 }

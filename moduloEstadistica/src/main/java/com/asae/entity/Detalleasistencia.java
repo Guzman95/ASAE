@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Detalleasistencia.findAll", query="SELECT d FROM Detalleasistencia d")
+@NamedQuery(name="detalleasistencia.findListbyId", query="SELECT a.detasistio, b.asifecha FROM Detalleasistencia a join a.asistencia b")
 public class Detalleasistencia implements Serializable {
 	private static final long serialVersionUID = 1L;
 

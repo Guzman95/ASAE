@@ -14,9 +14,8 @@ import java.util.List;
 @NamedQueries({
 
 @NamedQuery(name="usuario.findAll", query = "SELECT u FROM Usuario u"),
-@NamedQuery(name="usuario.getByEmail", query = "SELECT u FROM Usuario u WHERE u.usuemail = :email" ),
-@NamedQuery(name = "usuario.findByName", query = "SELECT u FROM Usuario u WHERE  u.usunombres LIKE %name%"),
-@NamedQuery(name = "usuario.findById", query = "SELECT u FROM Usuario u WHERE u.usuidentificacion = :id"),
+@NamedQuery(name = "usuario.findMix", query = "SELECT u FROM Usuario u WHERE  u.usunombres LIKE :busqueda OR u.usuapellidos LIKE :busqueda"),
+@NamedQuery(name = "usuario.findById", query = "SELECT u FROM Usuario u WHERE u.usuidentificacion LIKE :busqueda"),
 //@NamedQuery(name = "usuario.findDetails", query = "SELECT u.detalleasistencias FROM Usuario u")	
 })
 

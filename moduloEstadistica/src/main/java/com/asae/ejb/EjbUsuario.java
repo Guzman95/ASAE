@@ -17,6 +17,10 @@ import com.asae.daointerface.IDaoUsuario;
 import com.asae.dto.DTOUsuario;
 import com.asae.ejbinterface.IEjbUsuario;
 
+//AÑO Y PERIOD ID
+//AÑO Y MES ID
+//RANGOS ID
+
 @Stateful
 public class EjbUsuario implements IEjbUsuario{
 
@@ -82,7 +86,7 @@ public class EjbUsuario implements IEjbUsuario{
 			et=em.getTransaction();			
 			et.begin();
 				
-			lista = iDaoUsuario.findByName(em, "'%Mar%'");
+			lista = iDaoUsuario.findByName(em, "Mar");
 			System.out.println("cantidad de usuarios:ds " + lista.size());
 			for (int i = 0; i < lista.size(); i++) {
 				DTOUsuario objusuario= new DTOUsuario();

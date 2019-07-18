@@ -11,6 +11,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Asistencia.findAll", query="SELECT a FROM Asistencia a")
+
 public class Asistencia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,6 +28,7 @@ public class Asistencia implements Serializable {
 	@OneToMany(mappedBy="asistencia")
 	private List<Detalleasistencia> detalleasistencias;
 
+	
 	public Asistencia() {
 	}
 
