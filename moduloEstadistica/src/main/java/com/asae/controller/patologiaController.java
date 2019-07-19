@@ -13,51 +13,45 @@ import javax.faces.context.FacesContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import com.asae.dto.DTOPatologia;
 import com.asae.dto.DTOUsuario;
+import com.asae.ejbinterface.IEjbPatologia;
 import com.asae.ejbinterface.IEjbUsuario;
 
 @ManagedBean(name = "patologiaController")
 @RequestScoped 
 public class patologiaController {
 	
-	@ManagedProperty(value="#{objusuario}")
-	private DTOUsuario objusuario;
+	@ManagedProperty(value="#{objPatologia}")
+	private DTOPatologia objPatologia;
 	
-	private ArrayList<DTOUsuario> listaUsuario;
+	private ArrayList<DTOPatologia> listaPatologias;
 	
-	private static final String EJBGestionUsuarios_SESSION_KEY = "EJBSesionUsuarios";  
+	private static final String EJBGestionUsuarios_SESSION_KEY = "EJBSesionPatologias";  
 	
-	private IEjbUsuario iEjbUsuario;
+	private IEjbPatologia iEjbPatologia;
 	
 	 @PostConstruct
     public void init() {
 		 System.out.println("creando ejb");
 		 consultarReferenciaEJB();
-		 listaUsuario= new ArrayList<DTOUsuario>();
+		 listaPatologias= new ArrayList<DTOPatologia>();
     }
 		 
-	public DTOUsuario getObjusuario() {
-		return objusuario;
-	}
-
-	public void setObjusuario(DTOUsuario objusuario) {
-		this.objusuario = objusuario;
-	}
-
-	public List<DTOUsuario> getListaUsuario() {
-		return listaUsuario;
-	}
-
-	public void setListaUsuario(ArrayList<DTOUsuario> listaUsuario) {
-		this.listaUsuario = listaUsuario;
-	}
 	
-	public String listarUsuarios()
+
+	
+
+	
+
+	
+	
+	public DTOpatologia listarPatologias()
 	{
-		this.listaUsuario= (ArrayList<DTOUsuario>)iEjbUsuario.findAll();	
+		this.objPatologia= (ArrayList<DTOPatologia>)iEjbPatologia.findAll();	
 		System.out.println(listaUsuario.get(0).getUsunombres());
 		
-		return this.listarUsuarios();
+		return this.listarPatologias();
 	}
 	
 	public void consultarReferenciaEJB()

@@ -22,10 +22,12 @@ public class DaoPatologia implements IDaoPatologia {
 		listaPatologias =  (List<Patologia>) query;
 		for(Patologia objPatologia : listaPatologias ) {
 			DTOPatologia objAux = new DTOPatologia();
-			//objAux.setContador(query.getParameter(1));
+			objAux.setContador((long) query.getParameterValue(1));
+			objAux.setNombre(objPatologia.getNombre());
+			listaRetornoPatologias.add(objAux);
 			
 		}
-		return null;
+		return listaRetornoPatologias;
 		
 	}
 

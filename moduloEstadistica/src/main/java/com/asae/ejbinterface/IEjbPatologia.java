@@ -5,5 +5,5 @@ import java.util.List;
 import com.asae.dto.DTOPatologia;;
 
 public interface IEjbPatologia {
-	public List<DTOPatologia> findAll();
+	public List<DTOPatologia> findByCount();
 }

@@ -7,25 +7,13 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class DTOPatologia {
 	//Atributos
-	private int patid;
-	private String descripcion;
 	private String nombre;
-	private int usuid;
 	private long contador;
 	
 	public DTOPatologia(){
 		
 	}
 	
-	public int getpatid() {
-		return this.patid;
-	}
-	public int getusuid() {
-		return this.usuid;
-	}
-	public String getDescripcion() {
-		return this.descripcion;
-	}
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -34,5 +22,8 @@ public class DTOPatologia {
 	}
 	public void setContador(long varCont) {
 		this.contador = varCont;
+	}
+	public void setNombre(String varNombre) {
+		this.nombre = varNombre;
 	}
 }
