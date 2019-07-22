@@ -1,7 +1,10 @@
 package com.asae.dto;
 
-import java.util.Date;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
+@ManagedBean(name = "objdetalleasistencia", eager = true)
+@RequestScoped
 public class DTOAsistencia {
 	int numAsistencia;
 	String fecAsisencia;

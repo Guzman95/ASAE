@@ -1,6 +1,10 @@
 package com.asae.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +26,7 @@ public class detalleasistenciaController {
 	private DTOAsistencia objdetalleasistencia;
 	
 	
-	ArrayList<DTOAsistencia> listaDetalle=new ArrayList<>();
+	ArrayList<DTOAsistencia> listaDetalle;
 	
 	private static final String EJBGestionDetalleAsistencia_SESSION_KEY = "EJBDetalleAsistencia";  
 	
@@ -48,7 +52,7 @@ public class detalleasistenciaController {
 	}
 
 
-	public ArrayList<DTOAsistencia> getListaDetalle() {
+	public List<DTOAsistencia> getListaDetalle() {
 		return listaDetalle;
 	}
 
@@ -69,16 +73,23 @@ public class detalleasistenciaController {
 
 	
 	public static String getEjbgestiondetalleasistenciaSessionKey() {
-		return EJBGestionDetalleAsistencia_SESSION_KEY;
+		return EJBGestionDetalleAsistencia_SESSION_KEY;		
 	}
 
-	
-	public /*ArrayList<DTOAsistencia>*/void findListById(int identificacion){
+	//PENDIENTE MODIFICACION DE PARAMETROS UNA VEZ ESTE DISPONOBLE LA INTERFAZ
+	public /*ArrayList<DTOAsistencia>*/void findListById(/*int identificacion*/){
 		System.out.println("Consultando las asistencia de los usuario");
-		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListById(identificacion);
+		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListById("12");
 		System.out.println("El tamaño de la lista de asistencias es: "+listaDetalle.size());
 		//return listaDetalle;
 	}
+	
+	public void groupMonth(String fecha) throws ParseException {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
+		cal.setTime(format.parse(fecha));
+	}
+	
 	
 	private void consultarReferenciaEJB() {
 		// TODO Auto-generated method stub

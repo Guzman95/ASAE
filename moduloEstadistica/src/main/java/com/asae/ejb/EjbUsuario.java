@@ -80,6 +80,7 @@ public class EjbUsuario implements IEjbUsuario{
 	public List<DTOUsuario> findAll() {
 		List<Usuario> lista=null;
 		List<DTOUsuario> listaUsuarios= new ArrayList<DTOUsuario>();
+		
 		try {
 			
 			IDaoUsuario iDaoUsuario=new DaoUsuario();			
