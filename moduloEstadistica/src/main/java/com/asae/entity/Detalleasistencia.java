@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NamedQueries({
 //@NamedQuery(name="detalleasistencia.findListById", query="SELECT COUNT(DETASISTIO) ASISTIO, FUNCTION ('MONTH', dt.ASIFECHA) MES FROM Detalleasistencia dt JOIN dt.asistencia res WHERE FUNCTION('MONTH',ASIFECHA) <= 6 AND FUNCTION('YEAR',ASIFECHA) = :anio AND dt.usuario.usuid = :identificacion GROUP BY MES"),
 @NamedQuery(name="detalleasistencia.findListById", query="SELECT d.asifecha, a.detasistio FROM Detalleasistencia a JOIN a.asistencia d WHERE d.asiid = a.id.asiid AND a.usuario.usuid = :identificacion"),
-@NamedQuery(name="detalleasistencia.findByHalfYear", query = "SELECT COUNT(DETASISTIO) ASISTIO, FUNC(month,ASIFECHA) MES FROM asistencia asi JOIN Detalleasistencia dt ON asi.asiid=dt.asiid WHERE MONTH(ASIFECHA) <= 6 AND YEAR(ASIFECHA) = 2016 AND dt.USUID=11 GROUP BY MES"),
+//@NamedQuery(name="detalleasistencia.findByHalfYear", query = "SELECT COUNT(DETASISTIO) ASISTIO, FUNC(month,ASIFECHA) MES FROM asistencia asi JOIN Detalleasistencia dt ON asi.asiid=dt.asiid WHERE MONTH(ASIFECHA) <= 6 AND YEAR(ASIFECHA) = 2016 AND dt.USUID=11 GROUP BY MES"),
 //CONSULTA QUE PERMITE OBTENER LAS ASISTENCIAS POR SEMETRE Y POR 
 //SELECT COUNT( dt.DETASISTIO) ASISTIO,month(ASIFECHA) MES FROM asistencia asi JOIN detalleasistencia dt ON asi.asiid=dt.asiid WHERE MONTH(ASIFECHA) <= 6 AND YEAR(ASIFECHA) = 2016 AND dt.USUID=11 GROUP BY MES
 })

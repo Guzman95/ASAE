@@ -18,7 +18,6 @@ public class DaoDetalleAsistencia implements IDaoDetalleAsistencia{
 		TypedQuery<Object[]> query=em.createNamedQuery("detalleasistencia.findListById", Object[].class);
 		
 		query.setParameter("identificacion", identificacion);
-		query.setParameter("anio", 2016);
 		listaRetornada=query.getResultList();
 		
 		return listaRetornada;

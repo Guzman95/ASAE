@@ -50,17 +50,6 @@ public class EjbDetalleasistencia implements IEjbDetalleasistencia{
 	
 	@Override
 	public List<DTOAsistencia> findListById(String identificacion) {
-		/*List<Object[]> listaRetornada=null;
-		List<DTOAsistencia> listaDetalle=new ArrayList<DTOAsistencia>();
-		try {
-			IDaoDetalleAsistencia iDaoDetalle=new DaoDetalleAsistencia();
-			 em_date.getTransaction().begin();
-			 listaRetornada = iDaoDetalle.findListById(em_date, identificacion);
-			 
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		*/
 		List<Object[]> listaRetornada=null;
 		List<DTOAsistencia> listaDetalle=new ArrayList<DTOAsistencia>();
 		try {

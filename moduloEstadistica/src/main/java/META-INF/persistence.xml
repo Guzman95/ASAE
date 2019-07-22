@@ -13,7 +13,6 @@
 		<class>com.asae.entity.Inscripcion</class>
 		<class>com.asae.entity.Medida</class>
 		<class>com.asae.entity.Noticia</class>
-		<class>com.asae.entity.Patologia</class>
 		<class>com.asae.entity.Recuperarcontrasena</class>
 		<class>com.asae.entity.Responsable</class>
 		<class>com.asae.entity.Tipounidadacademica</class>
@@ -21,6 +20,7 @@
 		<class>com.asae.entity.Usuario</class>
 		<class>com.asae.entity.Usuariogrupo</class>
 		<class>com.asae.entity.UsuariogrupoPK</class>
+		<class>com.asae.entity.Patologia</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpabd_asae"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
