@@ -6,4 +6,6 @@ import com.asae.dto.DTOPatologia;;
 
 public interface IEjbPatologia {
 	public List<DTOPatologia> findByCount();
+
+	List<DTOPatologia> findAll();
 }

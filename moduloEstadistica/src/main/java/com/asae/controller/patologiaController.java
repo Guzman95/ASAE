@@ -46,10 +46,10 @@ public class patologiaController {
 
 	
 	
-	public DTOpatologia listarPatologias()
+	public List<DTOPatologia> listarPatologias()
 	{
-		this.objPatologia= (ArrayList<DTOPatologia>)iEjbPatologia.findAll();	
-		System.out.println(listaUsuario.get(0).getUsunombres());
+		this.listaPatologias= (ArrayList<DTOPatologia>)iEjbPatologia.findByCount();	
+		System.out.println(listaPatologias.get(0).getNombre());
 		
 		return this.listarPatologias();
 	}
@@ -57,17 +57,17 @@ public class patologiaController {
 	public void consultarReferenciaEJB()
 	{
 		Map<String, Object> requestMap = FacesContext.getCurrentInstance().getExternalContext().getRequestMap();
-		this.iEjbUsuario = (IEjbUsuario) requestMap.get("EJBGestionUsuarios_SESSION_KEY");
+		this.iEjbPatologia = (IEjbPatologia) requestMap.get("EJBGestionPatologias_SESSION_KEY");
 		 
-         if(this.iEjbUsuario == null){
+         if(this.iEjbPatologia == null){
 	                         
 	        	
 				try {
 					InitialContext ic = new InitialContext();
-					this.iEjbUsuario = (IEjbUsuario) ic.lookup("java:global/moduloEstadistica-1.0-SNAPSHOT/EjbUsuario!com.asae.ejbinterface.IEjbUsuario");
+					this.iEjbPatologia = (IEjbPatologia) ic.lookup("java:global/moduloEstadistica-1.0-SNAPSHOT/EjbUsuario!com.asae.ejbinterface.IEjbPatologia");
 			        	 
 					
-					requestMap.putIfAbsent(EJBGestionUsuarios_SESSION_KEY, this.iEjbUsuario);
+					requestMap.putIfAbsent(EJBGestionUsuarios_SESSION_KEY, this.iEjbPatologia);
 								        
 			        System.out.println("ejb para la gestión de usuarios creado");
 			        

@@ -24,8 +24,5 @@ public class DTOAsistencia {
 	
 	public void setFecAsisencia(String fecAsisencia) {
 		this.fecAsisencia = fecAsisencia;
-	}
-	
-	
-	
+	}	
 }

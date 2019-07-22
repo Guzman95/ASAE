@@ -34,6 +34,13 @@ public class EjbPatologia implements IEjbPatologia {
 		return null;
 		
 	}
+
+	@Override
+	public List<DTOPatologia> findByCount() {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
 	
 
 }

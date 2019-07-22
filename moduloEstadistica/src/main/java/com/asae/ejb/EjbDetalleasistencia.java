@@ -40,8 +40,7 @@ public class EjbDetalleasistencia implements IEjbDetalleasistencia{
 	
 	
 	@Override
-	public List<DTOAsistencia> findListById(int identificacion) {
-		
+	public List<DTOAsistencia> findListById(int identificacion) {		
 		List<DTOAsistencia> listaDetalle=new ArrayList<DTOAsistencia>();
 		try {
 			IDaoDetalleAsistencia iDaoDetalle=new DaoDetalleAsistencia();		

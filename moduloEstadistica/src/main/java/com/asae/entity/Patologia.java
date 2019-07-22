@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Patologia.findCount", query="SELECT p.nombre, COUNT(p.nombre) FROM Patologia p GROUP BY p.nombre")
+@NamedQuery(name="Patologia.findByCount", query="SELECT p.nombre, COUNT(p.nombre) FROM Patologia p GROUP BY p.nombre")
 
 
 public class Patologia implements Serializable {
