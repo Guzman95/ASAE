@@ -26,8 +26,6 @@ public class EjbDetalleasistencia implements IEjbDetalleasistencia{
 	private EntityManager em=null;
 	private EntityTransaction et=null;
 	
-	/*private EntityManagerFactory emf_date =null;
-    private EntityManager em_date = null;*/
 
         
 	Detalleasistencia detAsistencia;
@@ -49,7 +47,7 @@ public class EjbDetalleasistencia implements IEjbDetalleasistencia{
 	
 	
 	@Override
-	public List<DTOAsistencia> findListById(String identificacion) {
+	public List<DTOAsistencia> findListByHalfYear(String identificacion, int anio, String semestre) {
 		List<Object[]> listaRetornada=null;
 		List<DTOAsistencia> listaDetalle=new ArrayList<DTOAsistencia>();
 		try {
@@ -59,13 +57,13 @@ public class EjbDetalleasistencia implements IEjbDetalleasistencia{
 			et.begin();
 			
 			
-			listaRetornada = iDaoDetalle.findListById(em, identificacion);
+			listaRetornada = iDaoDetalle.findListByHalfYear(em, identificacion, anio, semestre);
 			
 			for (Object[] obj : listaRetornada) {
 				
 				DTOAsistencia objDtoAsistencia=new DTOAsistencia();
-				objDtoAsistencia.setFecAsisencia((String)obj[0]);
-				objDtoAsistencia.setNumAsistencia((int) obj[1]);
+				objDtoAsistencia.setFecAsisencia(obj[1].toString());
+				objDtoAsistencia.setNumAsistencia(Integer.parseInt(obj[0].toString()));
 				listaDetalle.add(objDtoAsistencia);
 			}
 					
@@ -81,6 +79,12 @@ public class EjbDetalleasistencia implements IEjbDetalleasistencia{
 	public void finalizarEJB() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<DTOAsistencia> findListByMonth(String identificacion, String mes) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

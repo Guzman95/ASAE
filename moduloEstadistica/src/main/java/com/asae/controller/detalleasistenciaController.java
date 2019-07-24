@@ -76,19 +76,24 @@ public class detalleasistenciaController {
 		return EJBGestionDetalleAsistencia_SESSION_KEY;		
 	}
 
-	//PENDIENTE MODIFICACION DE PARAMETROS UNA VEZ ESTE DISPONOBLE LA INTERFAZ
-	public /*ArrayList<DTOAsistencia>*/void findListById(/*int identificacion*/){
-		System.out.println("Consultando las asistencia de los usuario");
-		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListById("12");
+	//ESTE METODO YA ESTA LISTO PARA PINTAR LA GRAFICA
+	//METODO PARA HACER LA BUSQUEDA POR ASISTENCIA POR SEMETRE
+	public ArrayList<DTOAsistencia> findListByHalfYear(String identificacion, int anio, String Semestre){
+		System.out.println("Consultando las asistencia de los usuario por semestre");
+		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListByHalfYear(identificacion,anio,Semestre);
 		System.out.println("El tamaño de la lista de asistencias es: "+listaDetalle.size());
-		//return listaDetalle;
+		return listaDetalle;
 	}
 	
-	public void groupMonth(String fecha) throws ParseException {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
-		cal.setTime(format.parse(fecha));
+	
+	//ESTE METODO AUN NO ESTA LISTO
+	//METODO PARA HACER LA BUSQUEDA POR ASISTENCIA EN UN MES EN ESPECIFICO
+	public /*ArrayList<DTOAsistencia>*/void findListByMonth(/*int anio, String MES*/){
+		System.out.println("Consultando las asistencia de los usuario por Mes");
+		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListByMonth("11","ENERO");
+		System.out.println("El tamaño de la lista de asistencias es: "+listaDetalle.size());
 	}
+	
 	
 	
 	private void consultarReferenciaEJB() {
