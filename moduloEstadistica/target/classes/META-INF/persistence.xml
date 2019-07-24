@@ -22,7 +22,7 @@
 		<class>com.asae.entity.UsuariogrupoPK</class>
 		<class>com.asae.entity.Patologia</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpabd_asae"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb_asae"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value=""/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

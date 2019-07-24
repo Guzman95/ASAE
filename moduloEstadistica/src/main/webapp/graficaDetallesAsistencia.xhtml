@@ -1,0 +1,122 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"
+   xmlns:f = "http://java.sun.com/jsf/core"    
+   xmlns:h = "http://java.sun.com/jsf/html">
+ 	
+   <head>
+      <title>Grafica Asistencia</title>
+   </head>
+   
+   <h:body>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	<script src="jquery.ui.datepicker-es.js"></script>
+	<script type="text/javascript">
+ 	
+	function habilitar(){
+	document.getElementById('fecha').checked=false;
+	document.getElementById('rango').checked="checked";
+	document.getElementById('anio').disabled=true;
+	document.getElementById('periodo').disabled=true;
+	document.getElementById('mes').disabled=true;
+	document.getElementById('datepicker').disabled=false;
+	document.getElementById('datepicker2').disabled=false;
+	document.getElementById('rad1').disabled=true;
+	document.getElementById('rad2').disabled=true;
+	}
+	function deshabilitar(){
+	document.getElementById('fecha').checked="checked";
+	document.getElementById('rango').checked=false;
+	document.getElementById('anio').disabled=false;
+	document.getElementById('periodo').disabled=false;
+	document.getElementById('mes').disabled=true;
+	document.getElementById('datepicker').disabled=true;
+	document.getElementById('datepicker2').disabled=true;
+	document.getElementById('rad1').disabled=false;
+	document.getElementById('rad2').disabled=false;
+	}
+	</script>
+
+	<script>
+	$(function () {
+	$.datepicker.setDefaults($.datepicker.regional["es"]);
+	$("#datepicker").datepicker({
+	firstDay: 1
+	});
+	$("#datepicker2").datepicker({
+		firstDay: 1
+		});
+	});
+	</script>
+	<script>
+	function habilitarRad(){
+	document.getElementById('periodo').disabled=true;
+	document.getElementById('mes').disabled=false;
+	document.getElementById('rad2').checked="checked";
+	document.getElementById('rad1').checked=false;
+	}
+	function deshabilitarRad(){
+	document.getElementById('periodo').disabled=false;
+	document.getElementById('mes').disabled=true;
+	document.getElementById('rad2').checked=false;
+	document.getElementById('rad1').checked="checked";
+	}
+	</script>
+   
+      <h2>GRAFICO ASISTENCIA</h2>
+      <hr />
+      
+      <h:form>
+         <p>Cedula: <input type="text" value="#{detalleasistenciaControler.objdetalleasistencia.cedula}" name="nombre"/></p>
+         <h:selectManyCheckbox value = "#{detalleasistenciaController.objdetalleasistencia.datanio}">
+         <h4>A continuacion se presenta la grafica donde se refleja la asistencia del usuario al programa hora saludable</h4>
+            <p> FECHA:<input type="radio" id="fecha" name="fecha" value="fecha" onclick="deshabilitar()" checked="checked"/>
+            &nbsp;&nbsp;
+ 			Seleccionar año:
+ 			<select name="anio" id="anio">
+  			  <option>2016</option>
+			  <option>2017</option>
+			  <option>2018</option>
+			  <option>2019</option>
+       		</select>
+       		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       		<input type="radio" id="rad1" name="rad1" value="#{detalleasistenciaController.objdetalleasistencia.periodoAcademico}" onclick="deshabilitarRad()" checked="checked"/>
+       		Seleccionar Periodo:
+ 			<select name="periodo" id="periodo">
+  			  <option>I</option>
+			  <option>II</option>
+       		</select>
+       		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       		<input type="radio" id="rad2" name="rad2" value="rad2" onclick="habilitarRad()"/>
+       		Seleccionar Mes:
+ 			<select name="mes" id="mes" disabled="disabled">
+  			  <option>ENERO</option>
+			  <option>FEBRERO</option>
+			  <option>MARZO</option>
+			  <option>ABRIL</option>
+			  <option>MAYO</option>
+			  <option>JUNIO</option>
+			  <option>JULIO</option>
+			  <option>AGOSTO</option>
+			  <option>SEPTIEMBRE</option>
+			  <option>OCTUBRE</option>
+			  <option>NOVIEMBRE</option>
+			  <option>DICIEMBRE</option>
+			  
+       		</select>
+ 			</p>
+ 			<p> RANGO:<input type="radio" id="rango" name="rango" value="RANGO" onclick="habilitar()"/>&nbsp;&nbsp; Desde: 	<input type="text" id="datepicker" disabled="disabled"/>&nbsp;&nbsp;&nbsp;&nbsp;Hasta:  <input type="text" id="datepicker2" disabled="disabled"/></p>
+ 			
+ 			
+         </h:selectManyCheckbox>
+         <h:commandButton value = "BUSCAR" action = "#{detalleasistenciaController.findListByHalfYearEnviarVista}" />
+      </h:form>
+      
+       		
+   
+   </h:body>
+</html>

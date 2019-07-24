@@ -25,8 +25,8 @@ public class detalleasistenciaController {
 	@ManagedProperty(value="#{objdetalleasistencia}")
 	private DTOAsistencia objdetalleasistencia;
 	
-	
 	ArrayList<DTOAsistencia> listaDetalle;
+	
 	
 	private static final String EJBGestionDetalleAsistencia_SESSION_KEY = "EJBDetalleAsistencia";  
 	
@@ -36,6 +36,7 @@ public class detalleasistenciaController {
 	public void init() {
 		System.out.println("creando ejb");
 		 consultarReferenciaEJB();
+		 System.out.println("guardo en objeto el anio?"+this.objdetalleasistencia);
 		 listaDetalle= new ArrayList<DTOAsistencia>();
 	}
 
@@ -76,11 +77,21 @@ public class detalleasistenciaController {
 		return EJBGestionDetalleAsistencia_SESSION_KEY;		
 	}
 
+	public String findListByHalfYearEnviarVista(){
+		ArrayList<DTOAsistencia> listaAsistencia=this.findListByHalfYear();
+		for (int i = 0; i < listaAsistencia.size(); i++) {
+			System.out.println("cedula: " + listaAsistencia.get(i).getCedula());
+		}
+		
+		return "graficaDetallesAsistencia";
+		
+	}
+	
 	//ESTE METODO YA ESTA LISTO PARA PINTAR LA GRAFICA
-	//METODO PARA HACER LA BUSQUEDA POR ASISTENCIA POR SEMETRE
-	public ArrayList<DTOAsistencia> findListByHalfYear(String identificacion, int anio, String Semestre){
+	//METODO PARA HACER LA BUSQUEDA POR ASISTENCIA POR SEMETRE	
+	private ArrayList<DTOAsistencia> findListByHalfYear(){
 		System.out.println("Consultando las asistencia de los usuario por semestre");
-		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListByHalfYear(identificacion,anio,Semestre);
+		this.listaDetalle=(ArrayList<DTOAsistencia>)iEjbDetalleAsistencia.findListByHalfYear(this.objdetalleasistencia.getCedula(),Integer.parseInt(this.objdetalleasistencia.getdatanio()), this.objdetalleasistencia.getPeriodoAcademico());
 		System.out.println("El tamaño de la lista de asistencias es: "+listaDetalle.size());
 		return listaDetalle;
 	}

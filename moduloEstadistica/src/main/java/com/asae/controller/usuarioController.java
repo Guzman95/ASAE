@@ -25,6 +25,7 @@ public class usuarioController {
 	
 	private ArrayList<DTOUsuario> listaUsuario;
 	
+	
 	private static final String EJBGestionUsuarios_SESSION_KEY = "EJBSesionUsuarios";  
 	
 	private IEjbUsuario iEjbUsuario;
